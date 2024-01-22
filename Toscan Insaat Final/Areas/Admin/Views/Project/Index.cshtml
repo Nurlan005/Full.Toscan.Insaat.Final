@@ -1,0 +1,39 @@
+﻿@using Toscan_Insaat_Final.Models;
+@model List<Project>
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+
+<table class="table">
+    <button type="button" class="btn btn-warning" asp-action="Update" asp-controller="Project"><a asp-action="Create" asp-controller="Project">Create</a></button>
+
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Project project in Model)
+        {
+            count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td>@project.Name</td>
+                <td>@project.Status</td>
+                <td style="width : 50%"><img style="width:14%" src="~/images/projects/@project.ImageUrl" /></td>
+                <td style="width:13%" >
+                    <button type="button" class="btn btn-warning"><a asp-route-id="@project.Id" asp-action="Update" asp-controller="project">Update</a></button>
+                    <button type="button" class="btn btn-danger"><a asp-route-id="@project.Id" asp-action="Delete" asp-controller="project">Delete</a></button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

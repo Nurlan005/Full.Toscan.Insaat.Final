@@ -1,0 +1,41 @@
+﻿@using Toscan_Insaat_Final.Models;
+@model List<Service>
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+
+<table class="table">
+    <button type="button" class="btn btn-warning" asp-action="Update" asp-controller="Service"><a asp-action="Create" asp-controller="Service">Create</a></button>
+
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Service service in Model)
+        {
+            count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td>@service.Name</td>
+                <td>@service.Status</td>
+                <td><img style="width:20%" src="~/images/services/@service.ImageUrl" /></td>
+                <td>
+                    <button type="button" class="btn btn-warning"><a asp-route-id="@service.Id" asp-action="Update" asp-controller="Service">Update</a></button>
+                    <button type="button" class="btn btn-danger"><a asp-route-id="@service.Id" asp-action="Delete" asp-controller="Service">Delete</a></button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+

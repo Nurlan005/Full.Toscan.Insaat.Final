@@ -1,0 +1,43 @@
+﻿@using Toscan_Insaat_Final.Models;
+@model List<About>
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+
+<table class="table">
+    <button type="button" class="btn btn-warning" asp-action="Update" asp-controller="About"><a asp-action="Create" asp-controller="About">Create</a></button>
+
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">BackImage</th>
+            <th scope="col">CircleImage</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (About about in Model)
+        {
+            count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td style="width:40%" >@about.Title</td>
+                <td>@about.Status</td>
+                <td><img style="width:20%" src="~/images/abouts/@about.BackgroundImageUrl" /></td>
+                <td><img style="width:20%" src="~/images/abouts/@about.CircleImageUrl" /></td>
+                <td style="width: 12%;">
+                    <button type="button" class="btn btn-warning"><a asp-route-id="@about.Id" asp-action="Update" asp-controller="About">Update</a></button>
+                    <button type="button" class="btn btn-danger"><a asp-route-id="@about.Id" asp-action="Delete" asp-controller="About">Delete</a></button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+

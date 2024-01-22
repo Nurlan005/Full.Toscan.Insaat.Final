@@ -1,0 +1,39 @@
+﻿@using Toscan_Insaat_Final.Areas.Admin.Dtos.ProjectDtos
+@model ProjectCreateDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-controller="Project" asp-action="Create" asp-area="Admin" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.Name">Name</label>
+        <input class="form-control" asp-for="@Model.Name" placeholder="Name">
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Description">Description</label>
+        <input class="form-control" asp-for="@Model.Description" placeholder="Name">
+        <span asp-validation-for="@Model.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Status">Status</label>
+        <input class="form-control" asp-for="@Model.Status" placeholder="Status">
+    </div>
+
+    <div>
+        <label asp-for="@Model.ProjectImage">Image</label>
+        <input id="ImageUrl" asp-for="@Model.ProjectImage" class="form-control" type="file" />
+        <span asp-validation-for="@Model.ProjectImage" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+
+
+
+

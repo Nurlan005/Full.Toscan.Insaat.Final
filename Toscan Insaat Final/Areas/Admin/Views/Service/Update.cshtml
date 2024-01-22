@@ -1,0 +1,41 @@
+﻿@using Toscan_Insaat_Final.Areas.Admin.Dtos.ServiceDtos;
+@model ServiceUpdateDto
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<form asp-asp-controller="Service" asp-action="Update" asp-asp-area="Admin" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" value="@Model.ServiceId" name="ServiceId" />
+
+    <div class="form-group">
+        <label asp-for="@Model.Name">Name</label>
+        <input class="form-control" asp-for="@Model.Name" class="form-control" >
+        <span asp-asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Description">Description</label>
+        <input class="form-control" asp-for="@Model.Description" class="form-control" >
+        <span asp-asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ServiceImageUrl">Service Current Image</label>
+        <img src="~/images/services/@Model.ServiceImageUrl" style="width:100px; height:100px;" />
+    </div>
+
+    <div>
+        <label asp-for="@Model.ServiceImage">Service New Image</label>
+        <input id="ImageUrl" asp-for="@Model.ServiceImage" class="form-control" type="file" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ServiceStatus">Status</label>
+        <input class="form-control" asp-for="@Model.ServiceStatus" placeholder="status">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

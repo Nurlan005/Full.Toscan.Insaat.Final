@@ -1,0 +1,40 @@
+﻿@using Toscan_Insaat_Final.Models;
+@model List<Contact>
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Message</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Contact contact in Model)
+        {
+            count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td>@contact.Username</td>
+                <td>@contact.Email</td>
+                <td>@contact.Message</td>
+                
+                <td>
+                    <button type="button" class="btn btn-danger"><a asp-route-id="@contact.Id" asp-action="Delete" asp-controller="Contact">Delete</a></button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+

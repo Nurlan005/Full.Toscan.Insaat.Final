@@ -1,0 +1,32 @@
+﻿@model List<ProjectDto>
+
+@{
+    Layout = "_Layout";
+}
+
+<!-- Projects Start -->
+<div id="portfolio">
+    <div class="portfolio-top">
+        <h1> LAYIHƏLƏR</h1>
+    </div>
+    <div class="portfolio-img">
+
+        @if (Model.Count != 0)
+        {
+            @foreach (var project in Model)
+            {
+                <div class="portfolio-dv">
+                    <a href="@Url.Action("Detail","Project", new{id = project.Id})">
+                        <img src="~/images/projects/@project.ImageUrl" alt="project_photo">
+                    </a>
+                    
+                    <h2>
+                        @project.Name
+                    </h2>
+                </div>
+            }
+        }
+
+    </div>
+</div>
+<!-- Projects End -->

@@ -1,0 +1,39 @@
+﻿@model List<ServiceDto>
+
+@{
+    Layout = "_Layout";
+}
+
+<!-- Services -->
+<div id="services" class="container-fluid">
+    <div class="services-top">
+        <h1>Xidmətlər</h1>
+    </div>
+    <div class="services-bottom">
+        <div class="row">
+
+            @if (Model.Count != 0)
+            {
+                @foreach (var service in Model)
+                {
+                    <div class="services-item col-xl-4 col-lg-4 col-md-6 col-12">
+                        <img src="~/images/services/@service.ImageUrl" alt="service_photo">
+                        <h2>@service.Name</h2>
+                        <p>
+                            @service.Description
+                        </p>
+                    </div>
+                }
+            }
+
+
+
+        </div>
+
+    </div>
+
+    @*<div class="services-bottom">
+
+    </div>*@
+</div>
+<!-- End Services -->

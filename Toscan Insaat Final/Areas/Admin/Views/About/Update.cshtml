@@ -1,0 +1,34 @@
+﻿@using Toscan_Insaat_Final.Areas.Admin.Dtos.AboutDtos;
+@model AboutUpdateDto
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<form asp-asp-controller="About" asp-action="Update" asp-asp-area="Admin" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" value="@Model.AboutId" name="AboutId" />
+
+    <div class="form-group">
+        <label asp-for="@Model.Name">Name</label>
+        <input class="form-control" asp-for="@Model.Name" class="form-control">
+        <span asp-asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="@Model.ABackgroundImageUrl">About New Image</label>
+        <input id="ImageUrl" asp-for="@Model.ABackgroundImageUrl" class="form-control" type="file" />
+    </div>
+    <div>
+        <label asp-for="@Model.ACircleImageUrl">About New Image</label>
+        <input id="ImageUrl" asp-for="@Model.ACircleImageUrl" class="form-control" type="file" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.AboutStatus">Status</label>
+        <input class="form-control" asp-for="@Model.AboutStatus" placeholder="status">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

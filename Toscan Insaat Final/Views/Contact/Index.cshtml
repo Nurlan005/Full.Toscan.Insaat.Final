@@ -1,0 +1,34 @@
+﻿@using Toscan_Insaat_Final.Models;
+@model Contact
+
+@{
+    Layout = "_Layout";
+}
+<div style="margin-top: 0;" class="contactt">
+    <form style="position: relative;" method="post" asp-action="Index" class="text-center border border-light p-5">
+
+        <p style="color: #fff;" class="h4 mb-4">Əlaqə</p>
+
+        <!-- Name -->
+        <input type="text" id="username" name="username" asp-for="Username" class="form-control mb-4" placeholder="Ad">
+
+        <!-- Email -->
+        <input type="email" asp-for="Email" class="form-control mb-4" placeholder="E-Poçt">
+
+        <!-- Message -->
+        <div class="form-group">
+            <textarea class="form-control rounded-0" asp-for="Message" rows="3"
+                      placeholder="Mesaj"></textarea>
+        </div>
+
+        <div class="custom-control custom-checkbox mb-4">
+        </div>
+
+        <button style="background-color: #fff;" class="btn btn-info btn-block" type="submit">
+            <a>
+                Göndər
+            </a>
+        </button>
+
+    </form>
+</div>

@@ -1,0 +1,22 @@
+﻿@using Toscan_Insaat_Final.Models;
+@model Contact
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Username">Name</label>
+        <input class="form-control" asp-for="@Model.Username" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Message">Name</label>
+        <input class="form-control" asp-for="@Model.Message" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Email">Status</label>
+        <input class="form-control" asp-for="@Model.Email" placeholder="status">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

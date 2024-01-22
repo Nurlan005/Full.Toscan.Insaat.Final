@@ -1,0 +1,25 @@
+﻿@using Toscan_Insaat_Final.Areas.Admin.Dtos.SliderDtos
+@model SliderCreateDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-controller="Slider" asp-action="Create" asp-area="Admin" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.Title">Name</label>
+        <input class="form-control" asp-for="@Model.Title" placeholder="Name">
+        <span asp-validation-for="@Model.Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Status">Status</label>
+        <input class="form-control" asp-for="@Model.Status" placeholder="Status">
+    </div>
+
+    <div>
+        <label asp-for="@Model.SliderImage">Image</label>
+        <input id="ImageUrl" asp-for="@Model.SliderImage" class="form-control" type="file" />
+        <span asp-validation-for="@Model.SliderImage" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

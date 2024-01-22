@@ -1,0 +1,27 @@
+﻿@model AboutDto
+
+@{
+    Layout = "_Layout";
+}le
+<!-- About -->
+@if(Model != null)
+{
+    <div class="about" style="background-image:url('/images/abouts/@Model.BackgroundImageUrl') !important">
+        <div class="about-overlay"> </div>
+
+        <div class="about-img">
+            <img src="~/images/abouts/@Model.CircleImageUrl" alt="photo"/>
+        </div>
+
+
+        <div class="about-text">
+            <h2>
+                @Model?.Title
+               
+            </h2>
+        </div>
+    </div>
+}
+
+
+<!-- End About -->

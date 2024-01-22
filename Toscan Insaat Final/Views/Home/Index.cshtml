@@ -1,0 +1,120 @@
+﻿@using Toscan_Insaat_Final.Models;
+@model HomeIndexVM
+
+@{
+    Layout = "_Layout";
+
+    int count = 1;
+}
+
+
+<!-- Banner -->
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" style="padding-top: 60px;">
+        @foreach (var slider in Model.Slider)
+        {
+            <div class="carousel-item @(count==1 ? "active":"")" data-bs-interval="1500">
+                <img src="~/images/sliders/@slider.SlideImageUrl" class="d-block w-100" alt="...">
+                <div style="background-color: #555252;" class="carousel-caption d-none d-md-block">
+                    <h1 style="color:#000;">@slider.Title</h1>
+                </div>
+            </div>
+
+            count++;
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<!-- End Banner -->
+<!-- Services -->
+<div id="services" class="container-fluid">
+    <div class="services-top">
+        <h1>Xidmətlər</h1>
+    </div>
+    <div class="services-bottom">
+        <div class="row">
+
+            @if (Model.Services.Count != 0)
+            {
+                @foreach (var service in Model.Services)
+                {
+                    <div class="services-item col-xl-4 col-lg-4 col-md-6 col-12">
+                        <img src="~/images/services/@service.ImageUrl" alt="service_photo">
+                        <h2>@service.Name</h2>
+                        <p>
+                            @service.Description
+                        </p>
+                    </div>
+                }
+            }
+
+
+
+        </div>
+
+    </div>
+    @*<div class="services-bottom">
+
+    </div>*@
+</div>
+<!-- End Services -->
+<!-- About -->
+@if (Model != null)
+{
+    <div class="about" style="background-image:url('/images/abouts/@Model.About.BackgroundImageUrl') !important">
+        <div class="about-overlay"> </div>
+
+        <div class="about-img">
+            <img src="~/images/abouts/@Model.About.CircleImageUrl" alt="photo" />
+        </div>
+
+
+        <div class="about-text">
+            <h2>
+                @Model?.About.Title
+
+            </h2>
+        </div>
+    </div>
+}
+
+<!-- End About -->
+<!-- /* ContactUs start */ -->
+<div class="contactt">
+    <!-- Default form contact -->
+    <form class="text-center border border-light p-5" action="#!">
+
+        <p style="color: #fff;font-size: 35px;" class="h4 mb-4">ƏLAQƏ</p>
+
+        <!-- Name -->
+        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Ad">
+
+        <!-- Email -->
+        <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-poçt">
+
+        <!-- Subject -->
+        <!-- Message -->
+        <div class="form-group">
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"
+                      placeholder="Mesajınız"></textarea>
+        </div>
+
+        <!-- Copy -->
+        <div class="custom-control custom-checkbox mb-4">
+        </div>
+
+        <!-- Send button -->
+        <button style="background-color: #fff;" class="btn btn-info btn-block" type="submit">Göndər</button>
+
+    </form>
+</div>
+<!-- /* ContactUs end */ -->

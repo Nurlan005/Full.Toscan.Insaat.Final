@@ -1,0 +1,20 @@
+﻿@model ProjectDetailDto
+
+@{
+    Layout = "_Layout";
+}
+
+@if (Model != null)
+{
+    <div class="project-detail mb-4">
+        <div class="project-detail-left">
+            <img src="~/images/projects/@Model.ImageUrl" alt="photo">
+        </div>
+        <div class="project-detail-right">
+            <h2 style="color:#212529!important;">@Model.Name</h2>
+            <p style="color:#212529!important;">
+                @Model.Description
+            </p>
+        </div>
+    </div>
+}
